@@ -1,0 +1,28 @@
+NACIONES PRESENTACIONES — ACTUALIZACIÓN 1.3
+
+ARCHIVOS QUE DEBES REEMPLAZAR EN LA RAÍZ DEL REPOSITORIO:
+- index.html
+- app.js
+- sw.js
+
+ARCHIVO NUEVO QUE DEBES AGREGAR:
+- fixes.css
+
+No reemplaces ni borres styles.css ni manifest.webmanifest.
+
+IMPORTANTE SOBRE TUS ARCHIVOS:
+- La aplicación conserva el mismo nombre y versión de IndexedDB (naciones-presentaciones, versión 1).
+- No borres los datos del sitio ni IndexedDB. Ahí están tus imágenes, videos y canciones.
+- La actualización no sube los medios a GitHub; permanecen guardados en el navegador de esa computadora.
+
+MEJORAS:
+1. Fade con capas independientes y duración seleccionable.
+2. La vista previa del operador se mantiene en la ventana principal.
+3. Las canciones guardan un fondo fijo (negro, imagen o video) y superponen las estrofas.
+4. Arrastrar archivos a Presentación para importarlos y agregarlos; arrastrar a Imágenes/Videos para guardarlos en biblioteca; arrastrar tarjetas de biblioteca a Presentación; reordenar diapositivas arrastrándolas.
+
+DESPUÉS DE SUBIR:
+- Espera a que GitHub Pages publique los cambios.
+- Recarga la página con Ctrl+F5.
+- Si sigue apareciendo la versión anterior, cierra la pestaña y vuelve a abrirla.
+- No limpies los datos del sitio ni el almacenamiento del navegador.

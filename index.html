@@ -7,6 +7,7 @@
   <title>Naciones Presentaciones</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./fixes.css">
 </head>
 <body>
   <div id="app" class="app-shell">
@@ -21,7 +22,7 @@
       <div class="sidebar-bottom"><span class="status-dot"></span><span>Biblioteca local</span><small id="connection-label">Lista para trabajar</small></div>
     </aside>
 
-    <main class="main">
+    <main class="main" id="main-dropzone">
       <header class="topbar">
         <div><p class="eyebrow">CONTROL DE PROYECCIÓN</p><h1 id="page-title">Presentación</h1></div>
         <div class="top-actions">
@@ -32,10 +33,10 @@
 
       <section id="view-presentacion" class="view active">
         <div class="workspace">
-          <section class="slides-panel panel">
+          <section class="slides-panel panel" id="slides-dropzone">
             <div class="panel-head"><div><h2>Diapositivas</h2><p id="slide-count">0 elementos en la presentación</p></div><button class="btn btn-quiet" id="add-media">＋ Agregar</button></div>
             <div id="slides-grid" class="slides-grid">
-              <div class="empty-state"><div class="empty-icon">▧</div><strong>Tu presentación está vacía</strong><p>Agrega imágenes o crea una canción para comenzar.</p><button class="btn btn-primary" id="empty-add">Agregar archivos</button></div>
+              <div class="empty-state"><div class="empty-icon">▧</div><strong>Tu presentación está vacía</strong><p>Arrastra archivos aquí o utiliza el botón para agregarlos.</p><button class="btn btn-primary" id="empty-add">Agregar archivos</button></div>
             </div>
           </section>
           <aside class="right-column">
@@ -55,23 +56,23 @@
         </div>
         <section class="quick-dock panel">
           <div class="quick-dock-head"><div><h2>Imágenes predeterminadas</h2><p>Accesos rápidos para volver a fondos y pantallas fijas</p></div><span class="dock-hint">Fija imágenes desde la biblioteca</span></div>
-          <div id="quick-images" class="quick-images"><span class="quick-empty">Todavía no has fijado imágenes. Usa “Fijar abajo” en una imagen de tu biblioteca.</span></div>
+          <div id="quick-images" class="quick-images"><span class="quick-empty">Todavía no has fijado imágenes.</span></div>
         </section>
       </section>
 
       <section id="view-biblioteca" class="view">
-        <div class="panel library-panel">
+        <div class="panel library-panel" id="image-library-dropzone">
           <div class="panel-head"><div><h2>Biblioteca multimedia</h2><p>Imágenes y videos guardados en esta computadora.</p></div><button class="btn btn-primary" id="import-files">＋ Importar archivos</button></div>
-          <div class="library-info">Los archivos que importes se guardan en el almacenamiento de este navegador. No se suben a un servidor.</div>
+          <div class="library-info">Arrastra imágenes aquí para guardarlas en tu biblioteca. Después puedes arrastrarlas a la presentación. Los archivos se guardan en este navegador; no se suben a un servidor.</div>
           <div id="library-grid" class="library-grid"></div>
           <div id="library-empty" class="empty-state"><div class="empty-icon">▧</div><strong>Aún no hay imágenes</strong><p>Importa imágenes PNG, JPG o WebP.</p></div>
         </div>
       </section>
 
       <section id="view-videos" class="view">
-        <div class="panel library-panel">
+        <div class="panel library-panel" id="video-library-dropzone">
           <div class="panel-head"><div><h2>Biblioteca de videos</h2><p>Administra clips y videos con audio.</p></div><button class="btn btn-primary" id="import-videos">＋ Importar videos</button></div>
-          <div class="library-info">Los videos se guardan localmente y se agregan automáticamente a la presentación al importarlos.</div>
+          <div class="library-info">Arrastra videos aquí para guardarlos. También puedes arrastrarlos directamente a la presentación.</div>
           <div id="videos-grid" class="library-grid"></div>
           <div id="videos-empty" class="empty-state"><div class="empty-icon">▶</div><strong>Aún no hay videos</strong><p>Importa archivos MP4 o WebM.</p></div>
         </div>
@@ -83,6 +84,14 @@
             <div class="panel-head"><div><h2>Editor de canciones</h2><p>Escribe la letra y sepárala por diapositivas.</p></div></div>
             <label>Nombre de la canción<input id="song-title" type="text" placeholder="Ej. Tu amor no falla"></label>
             <label>Letra de la canción<textarea id="song-lyrics" rows="12" placeholder="Escribe aquí la letra.&#10;&#10;Deja una línea en blanco entre cada diapositiva."></textarea></label>
+            <div class="song-background-settings">
+              <label for="song-background">Fondo fijo para toda la canción</label>
+              <select id="song-background">
+                <option value="black">Negro (sin fondo)</option>
+              </select>
+              <p>El fondo permanecerá mientras avanzas por las estrofas. Elige una imagen o video que ya hayas importado a tu biblioteca.</p>
+              <div id="song-background-preview" class="song-background-preview">Vista previa del fondo</div>
+            </div>
             <button class="btn btn-primary" id="save-song">Guardar canción y agregar a presentación</button>
           </section>
           <section class="panel songs-list-panel"><div class="panel-head"><div><h2>Cancionero</h2><p id="song-count">0 canciones guardadas</p></div></div><div id="songs-list"></div></section>
@@ -93,6 +102,7 @@
 
   <input id="file-picker" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
   <input id="video-picker" type="file" accept="video/mp4,video/webm" multiple hidden>
+  <div id="drop-overlay" class="drop-overlay">Suelta los archivos para agregarlos</div>
   <div id="toast" class="toast"></div>
   <script src="./app.js"></script>
 </body>

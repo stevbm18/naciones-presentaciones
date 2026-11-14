@@ -1,0 +1,30 @@
+/* Ajustes visuales para la nueva vista de canciones y proyección */
+.song-background-settings{margin:16px 18px 0;padding:14px;background:#222730;border:1px solid #353b46;border-radius:9px}
+.song-background-settings label{display:block;padding:0;color:#e1e4e9;font-size:10px;font-weight:700}
+.song-background-settings select{width:100%;margin-top:9px;background:#101318;border:1px solid #454c58;border-radius:7px;padding:10px;color:#f4f5f7;font:inherit;font-size:10px}
+.song-background-settings p{font-size:9px;line-height:1.55;color:#8f97a3;margin:8px 0 0}
+.song-background-preview{height:110px;margin-top:11px;border-radius:6px;background:#101216;position:relative;overflow:hidden;display:grid;place-items:center;color:#858c98;font-size:10px}
+.song-background-preview.is-black{background:#050608}
+.song-background-preview img,.song-background-preview video{width:100%;height:100%;object-fit:contain}
+.song-background-preview span{position:absolute;left:7px;bottom:7px;padding:4px 6px;background:#090a0dcc;border-radius:4px;color:#fff;font-size:8px}
+.preview-screen{position:relative}
+.preview-screen .preview-background,.preview-screen .preview-media{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.preview-screen .preview-song-text{position:absolute;inset:0;display:grid;place-items:center;text-align:center;align-content:center;padding:7%;color:#fff;font-weight:700;font-size:clamp(12px,1.7vw,23px);line-height:1.35;white-space:pre-wrap;text-shadow:0 2px 8px #000}
+.slide-card.dragging{opacity:.4}
+.slide-card.drag-over{outline:2px dashed #d14a54;outline-offset:2px}
+.slides-grid.drop-target{background:#242a34;outline:2px dashed #b72d38;outline-offset:-8px;border-radius:8px}
+.video-thumb{color:#c6cbd3;font-size:11px;font-weight:700}
+.drop-overlay{position:fixed;inset:12px;z-index:1000;border:2px dashed #d14a54;border-radius:18px;background:#111318eF;display:none;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700;pointer-events:none}
+.drop-overlay.visible{display:flex}
+
+/* El operador conserva su propia interfaz; las capas de proyección solo viven en la ventana secundaria. */
+.projection{position:fixed;inset:0;background:#000;overflow:hidden;isolation:isolate}
+.projection-background-layer,.projection-lyrics-layer{position:absolute;inset:0;overflow:hidden}
+.projection-background-item{position:absolute;inset:0;width:100%;height:100%;opacity:1}
+.projection-background-item img,.projection-background-item video{width:100%;height:100%;object-fit:contain;background:#000}
+.projection-lyrics-layer{z-index:2;display:grid;place-items:center;pointer-events:none}
+.projection-lyrics{max-width:94vw;max-height:90vh;overflow:hidden;padding:4vw;color:#fff;text-align:center;font-weight:700;font-size:clamp(30px,5vw,78px);line-height:1.3;white-space:pre-wrap;text-shadow:0 2px 10px #000}
+.projection-message{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#7d8591;font-size:12px;letter-spacing:2px;z-index:5}
+.projection-message small{margin-top:10px;font-size:10px;letter-spacing:0}
+.projection.is-blackout{background:#000}
+@media(max-width:650px){.song-background-settings{margin-left:12px;margin-right:12px}}
