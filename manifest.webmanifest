@@ -1,0 +1,9 @@
+{
+  "name": "Naciones Presentaciones",
+  "short_name": "Naciones",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101216",
+  "theme_color": "#111318",
+  "description": "Presentaciones locales para Iglesia Naciones"
+}
